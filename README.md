@@ -1,12 +1,20 @@
 # IBMYes
 
+**测速节点已经停用，无法测试**
+
+**自动安装失效**
+
+**本项目初衷是想学习CI/CD以及容器的使用，任何与此无关的问题将不做回复。**
+
+**从fork数量来看，使用人数过多，估计影响到IBM CF的正常使用，所以项目不在更新。**
+
 本项目包括3部分
 
-1. IBM Cloud Fonudray搭建V2Ray ws
-2. 利用Github的Actions 每周重启 IBM Cloud Fonudray
-3. Cloudflare 高速节点中转
+1. ~~IBM Cloud Fonudray搭建应用~~
+2. ~~利用Github的Actions 每周重启 IBM Cloud Fonudray~~
+3. ~~Cloudflare 高速节点中转~~
 
-# 使用IBM Cloud Fonudray搭建V2Ray
+# 使用IBM Cloud Fonudray搭建应用
 
 首先注册https://cloud.ibm.com/
 
@@ -38,7 +46,7 @@
 
 ![image-20200615210821081](img/README/image-20200615210821081.png)
 
-打开命令行粘贴一键安装脚本：
+打开命令行，右上角选择相应的地区（Dallas），粘贴一键安装脚本：
 
 ```shell
 wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/CCChieh/IBMYes/master/install.sh && chmod +x install.sh  && ./install.sh
@@ -50,7 +58,7 @@ wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/CCCh
 
 ![image-20200615211154143](img/README/image-20200615211154143.png)
 
-配置好，等待几分钟，便可自动完成安装。
+配置好，等待几分钟，便可自动完成安装。完成安装后，将输出随机的UUID 、WebSocket路径以及对应的配置链接：
 
 ![image-20200615211339053](img/README/image-20200615211339053.png)
 
@@ -58,19 +66,13 @@ wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/CCCh
 
 ![image-20200615211851731](img/README/image-20200615211851731.png)
 
-看到`Bad Request`便成功了
+URL后加上生成的WebSocket路径，看到`Bad Request`便成功了
 
 ![image-20200615211949359](img/README/image-20200615211949359.png)
 
 这里请记下你的域名
 
-默认使用的配置是：
-
-```
-vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImlibXllcyIsDQogICJhZGQiOiAiaWJteWVzLnVzLXNvdXRoLmNmLmFwcGRvbWFpbi5jbG91ZCIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICI4YzM1YmVmMy1kNTFmLTQxYWItYWM4Ny03YjA1MzQxMDQ5NWIiLA0KICAiYWlkIjogIjY0IiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogInRscyINCn0=
-```
-
-把上面的配置复制到你的v2rayN或v2rayNg中，修改地址为你的应用的域名（前面我们`Bad Request`那个网页的域名。
+把完成安装后输出的配置链接复制到你的v2rayN或v2rayNg中，修改地址为你的应用的域名（前面我们`Bad Request`那个网页的域名。
 
 ![image-20200615212537944](img/README/image-20200615212537944.png)
 
